@@ -202,8 +202,19 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  const corner1 = String.fromCharCode(9484);
+  const corner2 = String.fromCharCode(9488);
+  const corner3 = String.fromCharCode(9492);
+  const corner4 = String.fromCharCode(9496);
+  const line = String.fromCharCode(9474);
+  const horizontalLine = String.fromCharCode(9472).repeat(width - 2);
+  const verticalLine = `${line}${String.fromCharCode(32).repeat(width - 2)}${line}\n`;
+
+  const topLine = `${corner1}${horizontalLine}${corner2}\n`;
+  const bottomLine = `${corner3}${horizontalLine}${corner4}\n`;
+
+  return `${topLine}${verticalLine.repeat(height - 2)}${bottomLine}`;
 }
 
 
